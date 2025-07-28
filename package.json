@@ -11,14 +11,19 @@
   "dependencies": {
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.99.0",
+    "glslify": "^7.1.1",
+    "glslify-loader": "^2.0.0",
+    "lil-gui": "^0.20.0",
     "next": "15.4.3",
     "next-sanity": "^9.12.3",
+    "raw-loader": "^4.0.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
     "sanity": "^3.99.0",
     "sass": "^1.89.2",
-    "styled-components": "^6.1.19"
+    "styled-components": "^6.1.19",
+    "three": "^0.178.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

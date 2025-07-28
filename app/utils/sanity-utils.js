@@ -32,7 +32,7 @@ export async function getHomepage(id) {
 } */
 
 // About Page
-/* export async function getAboutpage(id) {
+export async function getAboutpage(id) {
   const query = groq`
     *[_type == "about" && _id == $id][0] {
       _id,
@@ -49,7 +49,7 @@ export async function getHomepage(id) {
 
   const data = await client.fetch(query, { id });
   return data;
-} */
+}
 
 // Get Selected Projects
 /* export async function getSelectedProjects(id) {
@@ -148,21 +148,18 @@ export async function getHomepage(id) {
 } */
 
 // All Projects List
-/* export async function getProjectsList() {
+export async function getProjectsList() {
   const query = groq`
     *[_type == 'projects'] | order(order asc){
       _id,
       _createdAt,
-      title,
-      client,
-      "slug": slug.current,
-      category,
-      "heroUrl": hero.asset->url,
-      "thumbnailUrl": thumbnail.asset->url
+      name,
+      description,
+      "image": image.asset->url
     }`;
   const data = await client.fetch(query);
   return data;
-} */
+}
 
 // Fetch all unique categories from projects
 /* export async function getAllCategories() {

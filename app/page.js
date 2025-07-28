@@ -1,6 +1,7 @@
 import styles from "./page.module.scss";
 import { getHomepage } from "./utils/sanity-utils";
 import { PortableText } from '@portabletext/react';
+import MouseDistortion from "@/components/MouseDistortion/MouseDistortion";
 
 export default async function Home() {
   const home = await getHomepage('singleton-homepage');
@@ -8,7 +9,8 @@ export default async function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <video src={home.hero} autoPlay muted loop />
+        {/* <video src={home.hero} autoPlay muted loop /> */}
+        <MouseDistortion videoSrc={home.hero} />
         <div className={styles.main__description}>
           <PortableText value={home.description} />
         </div>
