@@ -28,8 +28,12 @@
     height: 100%;
     width: 100%;
     padding: 2rem;
+    pointer-events: none;
     ul {
       padding-left: 3rem;
+    }
+    a {
+      pointer-events: auto;
     }
   }
 }

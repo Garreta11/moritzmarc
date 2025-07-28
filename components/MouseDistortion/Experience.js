@@ -31,15 +31,24 @@ export default class Experience {
     this.setRenderer();
     this.setLights();
     this.setPlane();
-    this.setGUI();
+    // this.setGUI();
 
     if (this.videoSrc) {
       this.loadVideo(this.videoSrc);
     }
 
-    // mouse move
+    // Bind event handlers
     this.onMouseMove = this.onMouseMove.bind(this);
+    this.onTouchStart = this.onTouchStart.bind(this);
+    this.onTouchMove = this.onTouchMove.bind(this);
+    this.onTouchEnd = this.onTouchEnd.bind(this);
+    
+    // Mouse and Touch events
     window.addEventListener("mousemove", this.onMouseMove);
+    window.addEventListener("touchstart", this.onTouchStart, { passive: false });
+    window.addEventListener("touchmove", this.onTouchMove, { passive: false });
+    window.addEventListener("touchend", this.onTouchEnd, { passive: false });
+    window.addEventListener("touchcancel", this.onTouchEnd, { passive: false });
 
     // resize
     this.onResize();
@@ -263,11 +272,45 @@ export default class Experience {
     this.video.play();
   }
 
-  onMouseMove(event) {
-    this.mouse.x = event.clientX / window.innerWidth;
-    this.mouse.y = 1.0 - (event.clientY / window.innerHeight);
-
+  updatePointerPosition(clientX, clientY) {
+    const rect = this.container.getBoundingClientRect();
+    this.mouse.x = (clientX - rect.left) / rect.width;
+    this.mouse.y = 1.0 - ((clientY - rect.top) / rect.height);
+    
     this.planeMaterial.uniforms.u_mouse.value = this.mouse;
+  }
+
+  onMouseMove(event) {
+    this.updatePointerPosition(event.clientX, event.clientY);
+  }
+
+  onTouchStart(event) {
+    // Prevent default to avoid scrolling and other touch behaviors
+    event.preventDefault();
+    
+    if (event.touches.length > 0) {
+      const touch = event.touches[0];
+      this.updatePointerPosition(touch.clientX, touch.clientY);
+    }
+  }
+
+  onTouchMove(event) {
+    // Prevent default to avoid scrolling
+    event.preventDefault();
+    
+    if (event.touches.length > 0) {
+      const touch = event.touches[0];
+      this.updatePointerPosition(touch.clientX, touch.clientY);
+    }
+  }
+
+  onTouchEnd(event) {
+    // Prevent default
+    event.preventDefault();
+    
+    // Optional: You could add some behavior when touch ends
+    // For example, gradually fade out the ripple effect
+    // or reset the mouse position to a neutral state
   }
 
   onResize() {
