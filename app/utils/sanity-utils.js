@@ -9,7 +9,10 @@ export async function getHomepage(id) {
       _createdAt,
       title,
       "hero": hero.asset->url,
-      description
+      partnershipText,
+      email,
+      slogan,
+      location
     }
   `;
 

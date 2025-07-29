@@ -20,9 +20,9 @@ export default class Experience {
 
     // GUI parameters
     this.guiParams = {
-      rippleStrength: 0.2,
-      rippleSpeed: 5.0,
-      rippleRadius: 0.3
+      rippleStrength: 0.1,
+      rippleSpeed: 2.5,
+      rippleRadius: 0.15
     };
 
     this.setConfig();

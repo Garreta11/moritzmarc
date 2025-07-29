@@ -1,0 +1,7 @@
+$mobile-screen: 1024px;
+
+@mixin mobile-query {
+  @media (max-width: $mobile-screen) {
+    @content;
+  }
+}

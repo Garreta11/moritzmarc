@@ -1,14 +1,21 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.scss";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+import localFont from 'next/font/local';
+import MouseFollowCircle from "@/components/MouseFollowCircle/MouseFollowCircle";
+const biz_ud_mincho = localFont({
+  src: [
+    {
+      path: "./fonts/BIZUDMincho/BIZUDMincho-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/BIZUDMincho/BIZUDMincho-Bold.ttf",
+      weight: "700",
+      style: "bold",
+    },
+  ],
+  variable: "--font-biz-ud-mincho",
+  display: "swap",
 });
 
 export const metadata = {
@@ -19,8 +26,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${biz_ud_mincho.variable}`}
+      >
         {children}
+        <MouseFollowCircle />
       </body>
     </html>
   );
