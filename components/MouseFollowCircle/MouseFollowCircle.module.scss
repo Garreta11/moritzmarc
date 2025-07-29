@@ -1,9 +1,9 @@
 .circle {
   position: fixed;
-  width: 24px;
-  height: 24px;
+  width: 10px;
+  height: 10px;
   background-color: #ffffff;
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
   border-radius: 50%;
   pointer-events: none;
   z-index: 50;
@@ -13,4 +13,13 @@
   
   // Optional: Add a subtle shadow
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+
+
+  transition: width 0.8s ease, height 0.8s ease;
+
+}
+
+.active {
+  width: 10px;
+  height: 10px;
 }
