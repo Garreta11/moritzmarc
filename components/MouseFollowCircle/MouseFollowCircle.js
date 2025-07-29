@@ -10,17 +10,30 @@ const MouseFollowCircle = () => {
   useEffect(() => {
     let timeoutId;
 
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    const updatePosition = (x, y) => {
+      setMousePosition({ x, y });
       setIsMoving(true);
-
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => setIsMoving(false), 150); // 150ms after last movement
+      timeoutId = setTimeout(() => setIsMoving(false), 150);
+    };
+
+    const handleMouseMove = (e) => {
+      updatePosition(e.clientX, e.clientY);
+    };
+
+    const handleTouchMove = (e) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        updatePosition(touch.clientX, touch.clientY);
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
       clearTimeout(timeoutId);
     };
   }, []);

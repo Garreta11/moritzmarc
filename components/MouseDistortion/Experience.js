@@ -29,7 +29,6 @@ export default class Experience {
     this.mouseIdleProgress = 1;
     this.mouseDecayDuration = 800; // 0.8 seconds
 
-
     // Performance tracking
     this.frameCount = 0;
     this.lastFPSUpdate = performance.now();
@@ -223,7 +222,7 @@ export default class Experience {
     this.videoTexture.magFilter = THREE.LinearFilter;
     this.videoTexture.format = THREE.RGBFormat;
     this.videoTexture.colorSpace = THREE.SRGBColorSpace;
-
+    
     this.createPlaneMaterial(this.videoTexture);
     this.plane.material = this.planeMaterial;
     

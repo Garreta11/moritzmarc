@@ -1,7 +1,14 @@
 $mobile-screen: 1024px;
+$desktop-screen: 1327px;
 
 @mixin mobile-query {
   @media (max-width: $mobile-screen) {
+    @content;
+  }
+}
+
+@mixin desktop-query {
+  @media (max-width: $desktop-screen) {
     @content;
   }
 }
