@@ -42,7 +42,7 @@
     /* mix-blend-mode: difference; */
 
     @include mobile-query {
-      display: initial;
+      display: block;
     }
 
     &__wrapper {
