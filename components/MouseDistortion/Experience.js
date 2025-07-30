@@ -27,7 +27,7 @@ export default class Experience {
     this.lastInteractionTime = 0;
 
     this.mouseIdleProgress = 1;
-    this.mouseDecayDuration = 800; // 0.8 seconds
+    this.mouseDecayDuration = 400; // 0.4 seconds
 
     // Performance tracking
     this.frameCount = 0;
@@ -38,7 +38,7 @@ export default class Experience {
     this.guiParams = {
       rippleStrength: 0.04,
       rippleSpeed: 0.0,
-      rippleRadius: 0.18,
+      rippleRadius: 0.4,
       mouseSmoothing: 0.08,
       autoPlay: true,
       showStats: false,
