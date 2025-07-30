@@ -25,6 +25,12 @@ export const homeType = defineType({
       description: 'Background Video for Homepage',
     }),
     defineField({
+      title: 'Hero Mobile',
+      name: 'heromobile',
+      type: 'file',
+      description: 'Background Video for Homepage Mobile',
+    }),
+    defineField({
       name: 'partnershipText',
       title: 'Partnership Text',
       type: 'array',

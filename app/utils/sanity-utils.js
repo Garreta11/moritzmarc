@@ -9,6 +9,7 @@ export async function getHomepage(id) {
       _createdAt,
       title,
       "hero": hero.asset->url,
+      "heromobile": heromobile.asset->url,
       partnershipText,
       email,
       slogan,
