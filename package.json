@@ -13,6 +13,7 @@
     "@sanity/vision": "^3.99.0",
     "glslify": "^7.1.1",
     "glslify-loader": "^2.0.0",
+    "gsap": "^3.13.0",
     "lil-gui": "^0.20.0",
     "next": "15.4.3",
     "next-sanity": "^9.12.3",

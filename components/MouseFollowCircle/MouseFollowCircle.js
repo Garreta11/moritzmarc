@@ -1,20 +1,24 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './MouseFollowCircle.module.scss';
+import gsap from 'gsap';
 
 const MouseFollowCircle = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isMoving, setIsMoving] = useState(false);
+  const circleRef = useRef(null);
 
   useEffect(() => {
-    let timeoutId;
 
     const updatePosition = (x, y) => {
-      setMousePosition({ x, y });
-      setIsMoving(true);
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => setIsMoving(false), 150);
+
+      gsap.to(circleRef.current, { opacity: 1, duration: 0.3, ease: 'power2.out' });
+
+      gsap.to(circleRef.current, {
+        top: y,
+        left: x,
+        duration: 0.8,
+        ease: 'power2.out',
+      });
     };
 
     const handleMouseMove = (e) => {
@@ -40,11 +44,12 @@ const MouseFollowCircle = () => {
 
   return (
     <div
-      className={`${styles.circle} ${isMoving ? styles.active : ''}`}
-      style={{
+      ref={circleRef}
+      className={`${styles.circle}`}
+      /* style={{
         left: `${mousePosition.x}px`,
         top: `${mousePosition.y}px`,
-      }}
+      }} */
     />
   );
 };

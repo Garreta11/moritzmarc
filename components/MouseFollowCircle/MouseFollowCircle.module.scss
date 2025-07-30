@@ -10,16 +10,8 @@
   transform: translate(-50%, -50%);
   // transition: all 0.1s ease-out;
   
-  
   // Optional: Add a subtle shadow
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
-
-
-  transition: width 0.8s ease, height 0.8s ease;
-
-}
-
-.active {
-  width: 10px;
-  height: 10px;
+  opacity: 0;
+ 
 }
