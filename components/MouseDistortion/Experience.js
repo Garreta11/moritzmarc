@@ -419,10 +419,6 @@ export default class Experience {
     
     const t = THREE.MathUtils.clamp(1 - elapsed / this.mouseDecayDuration, 0, 1);
     this.mouseIdleProgress = t;
-    
-    
-    
-    
     // Update uniforms
     if (this.planeMaterial?.uniforms) {
       this.planeMaterial.uniforms.u_time.value += deltaTime;
