@@ -1,6 +1,8 @@
 import "./globals.scss";
 import localFont from 'next/font/local';
 import MouseFollowCircle from "@/components/MouseFollowCircle/MouseFollowCircle";
+import CursorManager from '@/components/CursorManager/CursorManager';
+
 const biz_ud_mincho = localFont({
   src: [
     {
@@ -29,6 +31,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${biz_ud_mincho.variable}`}
       >
+        <CursorManager />
         {children}
         <MouseFollowCircle />
       </body>

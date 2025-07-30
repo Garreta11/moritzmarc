@@ -12,7 +12,7 @@ export function useResponsiveFontSize() {
     const handleResize = () => {
       const width = window.innerWidth;
       const clampedWidth = Math.min(Math.max(width, 375), 1024); // clamp between 375 and 1024
-      const newSize = mapRange(clampedWidth, 375, 1024, 13.8, 37.8);
+      const newSize = mapRange(clampedWidth, 375, 1024, 13.2, 36.4);
       setFontSize(newSize);
     };
 

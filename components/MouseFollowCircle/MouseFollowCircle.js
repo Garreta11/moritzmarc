@@ -1,13 +1,17 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import styles from './MouseFollowCircle.module.scss';
 import gsap from 'gsap';
 
 const MouseFollowCircle = () => {
+  const pathname = usePathname();
   const circleRef = useRef(null);
 
   useEffect(() => {
+
+    if (pathname.includes('/studio')) return;
 
     const updatePosition = (x, y) => {
 
@@ -16,8 +20,8 @@ const MouseFollowCircle = () => {
       gsap.to(circleRef.current, {
         top: y,
         left: x,
-        duration: 0.8,
-        ease: 'power2.out',
+        duration: 0.1,
+        ease: 'none',
       });
     };
 
@@ -40,7 +44,10 @@ const MouseFollowCircle = () => {
       window.removeEventListener('touchmove', handleTouchMove);
       clearTimeout(timeoutId);
     };
-  }, []);
+  }, [pathname]);
+
+  // Don't render the element at all if on /studio
+  if (pathname.includes('/studio')) return;
 
   return (
     <div
