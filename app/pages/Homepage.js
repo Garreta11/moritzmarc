@@ -16,7 +16,6 @@ const Homepage = ({ home }) => {
   return (
     <div className={styles.main}>
       <MouseDistortion videoSrc={isMobile ? home.heromobile : home.hero} />
-
       {/* Desktop */}
       <div className={styles.main__desktop}>
         <div className={styles.main__desktop__wrapper}>
